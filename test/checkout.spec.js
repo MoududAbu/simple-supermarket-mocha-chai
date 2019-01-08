@@ -31,11 +31,3 @@ it('Can add multiple items and get correct total', () => {
     checkout.addItem('juice');
     expect(checkout.calculateTotal()).to.equal(3);
 });
-
-xit('Can add discount rules', () => {
-    checkout.addDiscount('apples', 3, 2);
-    checkout.addItem('apples');
-    checkout.addItem('apples');
-    checkout.addItem('apples');
-    expect(checkout.calculateTotal()).to.equal(3);
-})

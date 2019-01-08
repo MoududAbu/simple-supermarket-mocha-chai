@@ -3,7 +3,6 @@ module.exports = class Checkout {
     constructor() {
         this.basket = {};
         this.items = {};
-        this.discounts = {};
     }
 
     addItemPrice(item, price) {
@@ -11,14 +10,20 @@ module.exports = class Checkout {
     }
 
     addItem(item) {
-        this.items[item] ? this.items[item] = 1 : this.items[item]++;
+        this.items[item] === undefined ? this.items[item] = 1 : this.items[item]++;
     }
 
     calculateTotal() {
-        return 
+        let total = 0;
+        Object.keys(this.items).forEach(key => {
+            let value = this.items[key];
+            total += value;
+            //use key and value here
+        });
+        return total;
     }
 
     addDiscount(item, itemCount, discountPrice) {
         this.discounts[item] = { itemCount, discountPrice };
     }
-} 
+};
